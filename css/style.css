@@ -1,0 +1,155 @@
+/* =========================================
+   Fondo General y Layout
+========================================= */
+body {
+  /* Fondo degradado vibrante estilo aurora */
+  background: linear-gradient(135deg, #4f46e5, #0ea5e9, #c026d3, #f43f5e);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* =========================================
+   Contenedor Principal (Glassmorphism)
+========================================= */
+.card {
+  /* Fondo blanco semi-transparente y desenfoque */
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  
+  /* Borde blanco sutil para dar volumen al cristal */
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 15px rgba(0, 0, 0, 0.1), 0 20px 25px rgba(0, 0, 0, 0.1) !important;
+  
+  /* Forzamos el texto a oscuro para que contraste con el fondo claro */
+  color: #1f2937 !important; 
+}
+
+/* =========================================
+   Imagen de Portada
+========================================= */
+#cover {
+  border-radius: 1.2rem;
+  margin: 1.5rem auto 0;
+  width: 85%; /* Separamos la imagen de los bordes */
+  height: 250px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================
+   Textos
+========================================= */
+.card-title {
+  color: #111827 !important;
+}
+
+.card-text, #currTime, #durTime {
+  color: #4b5563 !important; /* Gris oscuro para el subtítulo y tiempos */
+  font-variant-numeric: tabular-nums;
+}
+
+/* =========================================
+   Controles y Botones
+========================================= */
+/* Botón Play central con estilo metálico/cristalino */
+#play {
+  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.3)) !important;
+  border: 1px solid rgba(255,255,255,0.8) !important;
+  color: #3b82f6 !important; /* Ícono en azul claro */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), inset 0 0 10px rgba(255, 255, 255, 0.5) !important;
+  transition: background 0.2s ease-out, transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+#play:hover {
+  background: rgba(255, 255, 255, 0.95) !important;
+  transform: scale(1.08);
+}
+
+#play:active {
+  transform: scale(0.96);
+}
+
+#play:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Botones Anterior / Siguiente */
+#prev, #next {
+  color: #374151 !important;
+  transition: color 0.2s ease-out, transform 0.2s ease-out, outline 0.2s ease-out;
+}
+
+#prev:focus-visible, #next:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+#prev:hover, #next:hover {
+  color: #000000 !important;
+  transform: scale(1.1);
+}
+
+#prev:active, #next:active {
+  transform: scale(0.96);
+}
+
+/* =========================================
+   Barra de Progreso (Input Range)
+========================================= */
+.custom-range {
+  appearance: none;
+  -webkit-appearance: none;
+  background: rgba(255, 255, 255, 0.4);
+  height: 6px;
+  border-radius: 5px;
+  outline: none;
+}
+
+/* Thumb (el circulito) para Chrome/Safari/Edge */
+.custom-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #3b82f6;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-out;
+}
+
+.custom-range::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* Thumb para Firefox */
+.custom-range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #3b82f6;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-out;
+}
+
+.custom-range::-moz-range-thumb:hover {
+  transform: scale(1.2);
+}
